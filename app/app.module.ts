@@ -3,20 +3,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';//支持表单双向绑定
+import { HttpModule } from '@angular/http';
+
 
 import { HeroDetailComponent } from './hero-detail.component';
+import { AppComponent } from './app.component';
+import { HeroesComponent } from './heroes.component';
+import { HeroService } from './hero.service';
+import { DashboardComponent } from './dashboard.component';
 
-//引入app组件
-import { AppComponent }   from './app.component';
+import { AppRoutingModule }     from './app-routing.module';
+
+
+
 
 @NgModule({
 	imports:	  [
 		BrowserModule,
-		FormsModule
+		FormsModule,
+		HttpModule,
+		AppRoutingModule
 	],
 	declarations: [ 
 		AppComponent ,
-		HeroDetailComponent
+		HeroDetailComponent,
+		HeroesComponent,
+		DashboardComponent
+	],
+	providers:    [
+		HeroService
 	],
 	bootstrap:    [ 
 		AppComponent 
