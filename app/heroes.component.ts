@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 
 
 export class HeroesComponent implements OnInit{
+
 	heroes = [];
 	selectedHero: Hero;
 	
@@ -43,5 +44,14 @@ export class HeroesComponent implements OnInit{
 	gotoDetail(hero: Hero): void {
 	  let link = ['/detail', hero.id];
 	  this.router.navigate(link);
+	}
+
+	add(name:String):void{
+		name=name.trim();
+		if(!name){return;}
+		this.heroService.create(name)
+			.then(function(resp){
+				console.log(resp);
+			}) 
 	}
 }

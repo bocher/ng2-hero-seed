@@ -29,6 +29,16 @@ var HeroDetailComponent = (function () {
     HeroDetailComponent.prototype.goBack = function () {
         this.location.back();
     };
+    HeroDetailComponent.prototype.save = function () {
+        var _this = this;
+        this.heroservice.update(this.hero)
+            .then(function () { return _this.goBack(); });
+    };
+    HeroDetailComponent.prototype.delete = function () {
+        var _this = this;
+        this.heroservice.delete(this.hero)
+            .then(function () { return _this.goBack(); });
+    };
     HeroDetailComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
